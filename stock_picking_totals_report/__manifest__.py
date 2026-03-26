@@ -40,6 +40,9 @@ Email: info@sjr.ie
     "data": [
         "views/stock_picking_report_views.xml",
     ],
+    "images": [
+        "static/description/main_screenshot.png",
+    ],
     "installable": True,
     "auto_install": False,
     "license": "LGPL-3",
