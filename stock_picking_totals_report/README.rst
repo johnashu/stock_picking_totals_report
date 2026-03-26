@@ -52,36 +52,28 @@ Lot/serial number and product barcode columns are removed entirely.
 Example Output
 ==============
 
-+---------------------------+---------------+--------------------+
-| Product                   | Qty Required  | From               |
-+===========================+===============+====================+
-| **Widget A**              | **10 units**  |                    |
-+---------------------------+---------------+--------------------+
-| *Available at location*   | 6 units       | Shelf 1-A          |
-+---------------------------+---------------+--------------------+
-| *Available at location*   | 4 units       | Shelf 2-B          |
-+---------------------------+---------------+--------------------+
-| **Widget B**              | **5 units**   |                    |
-+---------------------------+---------------+--------------------+
-| *Available at location*   | 5 units       | Main Stock         |
-+---------------------------+---------------+--------------------+
+=========================  =============  ==================
+Product                    Qty Required   From
+=========================  =============  ==================
+**Widget A**               **10 units**
+*Available at location*    6 units        Shelf 1-A
+*Available at location*    4 units        Shelf 2-B
+**Widget B**               **5 units**
+*Available at location*    5 units        Main Stock
+=========================  =============  ==================
 
 Before vs After
 ===============
 
-+--------------------------------+----------------------------+-------------------------------+
-| Feature                        | Standard Odoo              | With This Module              |
-+================================+============================+===============================+
-| Row per lot/serial             | Yes (cluttered)            | Removed                       |
-+--------------------------------+----------------------------+-------------------------------+
-| Total qty per product          | No                         | Yes — bold header row         |
-+--------------------------------+----------------------------+-------------------------------+
-| Source location per product    | Spread across many rows    | Grouped as sub-rows           |
-+--------------------------------+----------------------------+-------------------------------+
-| Qty available per location     | Mixed with lot/serial info | Clear sub-row per location    |
-+--------------------------------+----------------------------+-------------------------------+
-| Lot/Serial and barcode columns | Present                    | Removed                       |
-+--------------------------------+----------------------------+-------------------------------+
+==============================  ==========================  ==============================
+Feature                         Standard Odoo               With This Module
+==============================  ==========================  ==============================
+Row per lot/serial              Yes (cluttered)             Removed
+Total qty per product           No                          Yes - bold header row
+Source location per product     Spread across many rows     Grouped as sub-rows
+Qty available per location      Mixed with lot/serial info  Clear sub-row per location
+Lot/Serial and barcode columns  Present                     Removed
+==============================  ==========================  ==============================
 
 Installation
 ============
