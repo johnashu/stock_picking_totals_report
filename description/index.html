@@ -1,0 +1,223 @@
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <div style="background: linear-gradient(135deg, #714b67 0%, #875a7b 100%); color: white; padding: 30px 40px; border-radius: 8px; margin-bottom: 30px;">
+        <h2 style="color: white; margin: 0 0 10px 0; font-size: 28px; font-weight: 600;">
+          Stock Picking Totals Report
+        </h2>
+        <p style="margin: 0; opacity: 0.95; font-size: 16px">
+          Clean pick docket showing total qty per product and available stock per source location — no lot/serial clutter
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 style="color: #714b67; border-bottom: 2px solid #714b67; padding-bottom: 10px; margin-bottom: 20px;">
+        The Problem
+      </h3>
+      <p style="font-size: 15px; line-height: 1.7; color: #333">
+        The standard Odoo picking report prints <strong>one line per lot/serial number</strong>.
+        When a product is reserved from multiple lots across multiple locations, the docket
+        becomes a long, confusing list — particularly on a handheld scanner screen.
+      </p>
+      <p style="font-size: 15px; line-height: 1.7; color: #333">
+        Pickers need to know two things: <strong>how many</strong> to pick, and
+        <strong>where to find it</strong>. The barcode app handles which serials get scanned.
+        The pick docket should handle quantities and locations — nothing more.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 style="color: #714b67; border-bottom: 2px solid #714b67; padding-bottom: 10px; margin-bottom: 20px;">
+        Before vs After
+      </h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;">
+        <thead>
+          <tr style="background: #f5f5f5">
+            <th style="padding: 12px 15px; text-align: left; border-bottom: 2px solid #ddd; font-weight: 600; color: #333;">Feature</th>
+            <th style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #ddd; font-weight: 600; color: #333;">Standard Odoo</th>
+            <th style="padding: 12px 15px; text-align: center; border-bottom: 2px solid #ddd; font-weight: 600; color: #333;">With This Module</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee">One row per lot/serial</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #dc3545;">Yes (cluttered)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #28a745; font-weight: 600;">Removed</td>
+          </tr>
+          <tr style="background: #fafafa">
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee">Total qty per product</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #dc3545;">No</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #28a745; font-weight: 600;">Yes</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee">Source locations per product</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #dc3545;">Spread across many rows</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #28a745; font-weight: 600;">Grouped under product</td>
+          </tr>
+          <tr style="background: #fafafa">
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee">Qty available per location</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #dc3545;">Mixed with lot info</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #28a745; font-weight: 600;">Clear sub-row per location</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee">Lot/Serial barcode columns</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #dc3545;">Present (scanner app overlap)</td>
+            <td style="padding: 10px 15px; border-bottom: 1px solid #eee; text-align: center; color: #28a745; font-weight: 600;">Removed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 style="color: #714b67; border-bottom: 2px solid #714b67; padding-bottom: 10px; margin-bottom: 20px;">
+        Example Pick Docket
+      </h3>
+      <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); max-width: 560px;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+          <thead>
+            <tr style="border-bottom: 2px solid #dee2e6;">
+              <th style="padding: 8px; text-align: left;">Product</th>
+              <th style="padding: 8px; text-align: left;">Qty Required</th>
+              <th style="padding: 8px; text-align: left;">From</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-top: 2px solid #dee2e6; font-weight: 700;">
+              <td style="padding: 8px;">Widget A</td>
+              <td style="padding: 8px;">10 units</td>
+              <td style="padding: 8px;"></td>
+            </tr>
+            <tr style="color: #666; font-style: italic; font-size: 12px;">
+              <td style="padding: 4px 8px 4px 32px;">Available at location</td>
+              <td style="padding: 4px 8px;">6 units</td>
+              <td style="padding: 4px 8px;">Shelf 1-A</td>
+            </tr>
+            <tr style="color: #666; font-style: italic; font-size: 12px;">
+              <td style="padding: 4px 8px 4px 32px;">Available at location</td>
+              <td style="padding: 4px 8px;">4 units</td>
+              <td style="padding: 4px 8px;">Shelf 2-B</td>
+            </tr>
+            <tr style="border-top: 2px solid #dee2e6; font-weight: 700;">
+              <td style="padding: 8px;">Widget B</td>
+              <td style="padding: 8px;">5 units</td>
+              <td style="padding: 8px;"></td>
+            </tr>
+            <tr style="color: #666; font-style: italic; font-size: 12px;">
+              <td style="padding: 4px 8px 4px 32px;">Available at location</td>
+              <td style="padding: 4px 8px;">5 units</td>
+              <td style="padding: 4px 8px;">Main Stock</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 style="color: #714b67; border-bottom: 2px solid #714b67; padding-bottom: 10px; margin-bottom: 20px;">
+        Key Design Decisions
+      </h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px">
+        <div style="flex: 1 1 280px; background: #f8f9fa; border-left: 4px solid #714b67; padding: 15px 20px; border-radius: 0 6px 6px 0;">
+          <h4 style="margin: 0 0 8px 0; color: #333; font-size: 15px; font-weight: 600;">Pick Docket = Qty Authority</h4>
+          <p style="margin: 0; color: #666; font-size: 13px; line-height: 1.5">
+            The printed docket tells pickers <em>how many</em> to pick in total.
+            It is the authoritative source for quantities.
+          </p>
+        </div>
+        <div style="flex: 1 1 280px; background: #f8f9fa; border-left: 4px solid #714b67; padding: 15px 20px; border-radius: 0 6px 6px 0;">
+          <h4 style="margin: 0 0 8px 0; color: #333; font-size: 15px; font-weight: 600;">Barcode App = Serial Authority</h4>
+          <p style="margin: 0; color: #666; font-size: 13px; line-height: 1.5">
+            The scanner app records <em>which</em> serial/lot numbers are actually
+            picked. Printing serials on the docket is redundant and confusing.
+          </p>
+        </div>
+        <div style="flex: 1 1 280px; background: #f8f9fa; border-left: 4px solid #714b67; padding: 15px 20px; border-radius: 0 6px 6px 0;">
+          <h4 style="margin: 0 0 8px 0; color: #333; font-size: 15px; font-weight: 600;">Location Guidance</h4>
+          <p style="margin: 0; color: #666; font-size: 13px; line-height: 1.5">
+            Sub-rows show each source location and the qty reserved there,
+            so pickers know exactly where to go and how much to take from each spot.
+          </p>
+        </div>
+        <div style="flex: 1 1 280px; background: #f8f9fa; border-left: 4px solid #714b67; padding: 15px 20px; border-radius: 0 6px 6px 0;">
+          <h4 style="margin: 0 0 8px 0; color: #333; font-size: 15px; font-weight: 600;">Reduced Cognitive Load</h4>
+          <p style="margin: 0; color: #666; font-size: 13px; line-height: 1.5">
+            10 lot lines for one product becomes 1 bold total + a short location
+            list. Fewer lines = fewer mistakes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 style="color: #714b67; border-bottom: 2px solid #714b67; padding-bottom: 10px; margin-bottom: 20px;">
+        Technical Details
+      </h3>
+      <ul style="list-style: none; padding: 0; margin: 0">
+        <li style="padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #333;">
+          <strong style="color: #714b67">Inheritance:</strong> Extends
+          <code style="background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 13px;">stock.report_picking</code>
+          as overridden by <code style="background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 13px;">product_hide_cost</code>
+        </li>
+        <li style="padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #333;">
+          <strong style="color: #714b67">Product rows:</strong> Iterates
+          <code style="background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 13px;">move_ids_without_package</code>
+          — one <code>stock.move</code> per product, using <code>product_uom_qty</code> for the total demand
+        </li>
+        <li style="padding: 12px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #333;">
+          <strong style="color: #714b67">Location rows:</strong> Groups
+          <code style="background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 13px;">move.move_line_ids</code>
+          by <code>location_id</code> using <code>mapped()</code>, then sums <code>quantity</code> per location
+        </li>
+        <li style="padding: 12px 0; font-size: 14px; color: #333;">
+          <strong style="color: #714b67">No Python required:</strong> Pure QWeb template inheritance — no model changes
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <h3 style="color: #714b67; border-bottom: 2px solid #714b67; padding-bottom: 10px; margin-bottom: 20px;">
+        Dependencies
+      </h3>
+      <ul style="font-size: 14px; color: #333; line-height: 1.8">
+        <li><strong>stock</strong> — Odoo Inventory (core)</li>
+        <li><strong>product_hide_cost</strong> — provides the base stock.report_picking template override</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="oe_container">
+  <div class="oe_row oe_spaced">
+    <div class="oe_span12">
+      <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px;">
+        <h4 style="margin: 0 0 5px 0; color: #714b67; font-size: 18px;">SJR Nebula</h4>
+        <p style="margin: 0; color: #666; font-size: 14px;">Developed by John Ashurst</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        Stock Picking Totals Report
+        ===========================
+        Inherits stock.report_picking (as extended by product_hide_cost) and
+        replaces the per-lot/serial line rows with:
+          1. One bold row per product showing the TOTAL quantity required
+          2. Indented sub-rows listing each source location and the qty
+             reserved/available there
+
+        Lot/serial numbers are intentionally omitted — the pick docket is the
+        source of truth for quantities; the barcode scanning app is the source
+        of truth for which serials are actually scanned.
+    -->
+    <template id="report_picking_totals_sjr" inherit_id="stock.report_picking">
+
+        <!-- Remove the Lot/Serial Number column header (scanning app handles serials) -->
+        <xpath expr="//th[@name='th_serial_number']" position="replace" />
+
+        <!-- Remove the Product Barcode column header -->
+        <xpath expr="//th[@name='th_barcode']" position="replace" />
+
+        <!-- Replace per-lot/serial rows with consolidated product + location rows -->
+        <xpath expr="//tr[@t-as='ml']" position="replace">
+            <!--
+                Iterate stock.move records (one per product line on the picking).
+                For each move we render:
+                  (a) a bold "total required" product row
+                  (b) one sub-row per unique source location showing reserved qty
+            -->
+            <t t-foreach="o.move_ids_without_package.sorted(lambda m: m.product_id.display_name)"
+                t-as="move">
+
+                <!-- ── Product total row ─────────────────────────────────── -->
+                <tr style="border-top: 2px solid #dee2e6;">
+                    <td>
+                        <strong>
+                            <span t-field="move.product_id.display_name" />
+                        </strong>
+                        <div t-if="move.product_id.description_picking"
+                            t-field="move.product_id.description_picking"
+                            class="text-muted small fw-normal" />
+                    </td>
+                    <td class="fw-bold">
+                        <span t-field="move.product_uom_qty" />
+                        <span t-field="move.product_uom" groups="uom.group_uom" />
+                    </td>
+                    <!-- "From" cell: blank on the product row; locations appear below -->
+                    <td t-if="o.picking_type_id.code != 'incoming'"
+                        groups="stock.group_stock_multi_locations" />
+                    <td t-if="o.picking_type_id.code != 'outgoing'"
+                        groups="stock.group_stock_multi_locations">
+                        <span t-field="move.location_dest_id" />
+                    </td>
+                </tr>
+
+                <!-- ── Location breakdown sub-rows ──────────────────────── -->
+                <t t-if="move.move_line_ids">
+                    <t
+                        t-foreach="move.move_line_ids.mapped('location_id').sorted(key=lambda l: l.complete_name)"
+                        t-as="loc">
+                        <!-- Sum quantity reserved/to-do at this specific location -->
+                        <t t-set="loc_qty"
+                            t-value="sum(move.move_line_ids.filtered(lambda ml: ml.location_id == loc).mapped('quantity'))" />
+                        <tr class="text-muted">
+                            <td class="ps-5 fst-italic small">
+                                Available at location
+                            </td>
+                            <td class="small">
+                                <span t-esc="'%g' % loc_qty" />
+                                <span t-field="move.product_uom" groups="uom.group_uom" />
+                            </td>
+                            <td t-if="o.picking_type_id.code != 'incoming'"
+                                groups="stock.group_stock_multi_locations"
+                                class="small">
+                                <span t-esc="loc.display_name" />
+                            </td>
+                            <td t-if="o.picking_type_id.code != 'outgoing'"
+                                groups="stock.group_stock_multi_locations" />
+                        </tr>
+                    </t>
+                </t>
+                <t t-else="">
+                    <!-- No stock reserved yet for this product -->
+                    <tr class="text-warning small">
+                        <td class="ps-5 fst-italic"
+                            t-att-colspan="2 + (1 if o.picking_type_id.code != 'incoming' else 0) + (1 if o.picking_type_id.code != 'outgoing' else 0)">
+                            No stock reserved — check availability
+                        </td>
+                    </tr>
+                </t>
+
+            </t>
+        </xpath>
+
+    </template>
+</odoo>
