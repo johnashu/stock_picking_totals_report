@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Stock Picking Totals Report",
-    "version": "17.0.1.0.0",
+    "version": "17.0.0.0.0",
     "category": "Inventory",
     "summary": "Pick docket showing total qty per product and stock available per source location",
     "description": """
@@ -30,9 +30,13 @@ Technical Details
 
 Author: John Ashurst
 Company: SJR Nebula
+Website: https://sjr.ie
+Email: info@sjr.ie
     """,
     "author": "SJR Nebula",
-    "depends": ["stock", "product_hide_cost"],
+    "website": "https://sjr.ie",
+    "email": "info@sjr.ie",
+    "depends": ["stock"],
     "data": [
         "views/stock_picking_report_views.xml",
     ],
