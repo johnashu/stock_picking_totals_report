@@ -43,6 +43,7 @@ Email: info@sjr.ie
     ],
     "images": [
         "static/description/main_screenshot.png",
+        "static/description/banner.png",
     ],
     "installable": True,
     "auto_install": False,
