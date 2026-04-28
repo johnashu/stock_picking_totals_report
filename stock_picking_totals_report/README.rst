@@ -6,8 +6,8 @@ Stock Picking Totals Report
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 
-.. |badge2| image:: https://img.shields.io/badge/odoo-17.0-blueviolet
-    :alt: Odoo 17.0
+.. |badge2| image:: https://img.shields.io/badge/odoo-18.0-blueviolet
+    :alt: Odoo 18.0
 
 |badge1| |badge2|
 
