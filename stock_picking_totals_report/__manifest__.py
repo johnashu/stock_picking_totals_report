@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Stock Picking Totals Report",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Inventory",
     "summary": "Pick docket showing total qty per product and stock available per source location",
     "description": """
@@ -23,11 +23,12 @@ Features
 
 Technical Details
 -----------------
-* Inherits stock.report_picking (as overridden by product_hide_cost)
+* Inherits stock.report_picking
 * Uses stock.move records (one per product) for the total quantity
 * Groups stock.move.line records by location_id to build the location breakdown
 * No Python model changes required — pure QWeb template inheritance
-* Compatible with Odoo 18
+* Updated for Odoo 19: iterates `move_ids` (move_ids_without_package was removed)
+  and replaces the new combined Barcode column / move-line breakdown tbody
 
 Author: John Ashurst
 Company: SJR Nebula
