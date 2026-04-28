@@ -26,13 +26,13 @@ Problem
 
 The standard Odoo picking report prints one line per lot/serial number
 reservation. When a product is reserved from multiple lots spread across
-multiple locations, this produces a long, confusing list — especially on a
+multiple locations, this produces a long, confusing list - especially on a
 handheld scanner screen.
 
 Pickers need to know two things:
 
 - **How many** of each product to pick (the total demand)
-- **Where to find it** — which locations hold stock, and how much
+- **Where to find it** - which locations hold stock, and how much
 
 The barcode scanning app is the source of truth for *which* serials are scanned.
 The pick docket is the source of truth for *how many* to pick. Printing
@@ -97,17 +97,17 @@ normal. The report will show one product row per line with location sub-rows
 beneath it.
 
 If stock has not yet been reserved for a product, a warning sub-row is shown:
-*"No stock reserved — check availability"*.
+*"No stock reserved - check availability"*.
 
 Features
 ========
 
-- **Consolidated product rows** — one bold row per product showing total demand
-- **Location breakdown** — sub-rows per source location with reserved qty
-- **No lot/serial clutter** — serial scanning is handled by the barcode app
-- **No Python required** — pure QWeb template inheritance, no model changes
-- **Handles unreserved products** — warning row shown when no stock is reserved
-- **Respects multi-location groups** — location columns only shown when the
+- **Consolidated product rows** - one bold row per product showing total demand
+- **Location breakdown** - sub-rows per source location with reserved qty
+- **No lot/serial clutter** - serial scanning is handled by the barcode app
+- **No Python required** - pure QWeb template inheritance, no model changes
+- **Handles unreserved products** - warning row shown when no stock is reserved
+- **Respects multi-location groups** - location columns only shown when the
   ``stock.group_stock_multi_locations`` group is active
 
 Technical Notes
