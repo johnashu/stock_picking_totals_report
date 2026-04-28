@@ -13,8 +13,7 @@
         source of truth for quantities; the barcode scanning app is the source
         of truth for which serials are actually scanned.
 
-        Odoo 19 notes
-        -------------
+        Odoo 19 notes:
         * The base template now uses a single "Barcode" column that combines
           product barcodes and lot/serial barcodes — we strip it entirely.
         * `move_ids_without_package` was removed; we iterate `o.move_ids`.
