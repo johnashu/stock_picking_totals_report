@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Stock Picking Totals Report",
-    "version": "17.0.0.0.0",
+    "version": "17.0.1.0.0",
     "category": "Inventory",
     "summary": "Pick docket showing total qty per product and stock available per source location",
     "description": """
@@ -27,6 +27,7 @@ Technical Details
 * Uses stock.move records (one per product) for the total quantity
 * Groups stock.move.line records by location_id to build the location breakdown
 * No Python model changes required — pure QWeb template inheritance
+* Compatible with Odoo 17
 
 Author: John Ashurst
 Company: SJR Nebula
@@ -42,6 +43,7 @@ Email: info@sjr.ie
     ],
     "images": [
         "static/description/main_screenshot.png",
+        "static/description/banner.png",
     ],
     "installable": True,
     "auto_install": False,
