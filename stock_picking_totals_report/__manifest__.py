@@ -16,7 +16,7 @@ Features
 --------
 * One row per product showing the TOTAL quantity required
 * Per-product breakdown listing each source location and the qty reserved there
-* Lot/serial numbers are intentionally omitted — the pick docket is the source
+* Lot/serial numbers are intentionally omitted - the pick docket is the source
   of truth for quantities; the barcode scanning app is the source of truth for
   which serials are scanned
 * Works alongside the product_hide_cost module which provides the base template
@@ -26,7 +26,7 @@ Technical Details
 * Inherits stock.report_picking
 * Uses stock.move records (one per product) for the total quantity
 * Groups stock.move.line records by location_id to build the location breakdown
-* No Python model changes required — pure QWeb template inheritance
+* No Python model changes required - pure QWeb template inheritance
 * Updated for Odoo 19: iterates `move_ids` (move_ids_without_package was removed)
   and replaces the new combined Barcode column / move-line breakdown tbody
 

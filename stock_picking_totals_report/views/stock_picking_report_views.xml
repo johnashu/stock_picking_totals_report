@@ -9,13 +9,13 @@
           2. Indented sub-rows listing each source location and the qty
              reserved/available there
 
-        Lot/serial numbers are intentionally omitted — the pick docket is the
+        Lot/serial numbers are intentionally omitted - the pick docket is the
         source of truth for quantities; the barcode scanning app is the source
         of truth for which serials are actually scanned.
 
         Odoo 19 notes:
         * The base template now uses a single "Barcode" column that combines
-          product barcodes and lot/serial barcodes — we strip it entirely.
+          product barcodes and lot/serial barcodes - we strip it entirely.
         * `move_ids_without_package` was removed; we iterate `o.move_ids`.
         * The base tbody now iterates moves (not move-lines), so we replace the
           tbody to inject our per-location breakdown.
@@ -91,7 +91,7 @@
                         <tr class="text-warning small">
                             <td class="ps-5 fst-italic"
                                 t-att-colspan="2 + (1 if from_col_exists else 0) + (1 if to_col_exists else 0)">
-                                No stock reserved — check availability
+                                No stock reserved - check availability
                             </td>
                         </tr>
                     </t>
